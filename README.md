@@ -1,6 +1,11 @@
-# Open Pit Wall
+# Open Pit Wall 📡🏎️
 
-Open Pit Wall replays previously recorded Formula 1 timing and telemetry data as a local WebSocket feed. It is designed for dashboards, overlays, visualizations, and other client applications that need a realistic motorsport data stream without relying on live telemetry.
+![Open Pit Wall Diagram](./resources/diagram.png)
+
+Open Pit Wall is a Python project for replaying previously recorded Formula 1 timing and telemetry data as a simulated live WebSocket broadcast. It is designed for testing dashboards, overlays, visualizations, and other client applications that need a realistic motorsport data feed without requiring access to live telemetry.
+
+It combines a CLI session picker, FastF1-powered data download pipeline, cached replay files, and a replay broadcaster with channel-based subscriptions for telemetry, leaderboard, race control, weather, and lap updates.
+
 
 ## Features
 
@@ -157,3 +162,13 @@ This project is licensed under the MIT License. See [`LICENSE`](./LICENSE).
 ## Disclaimer
 
 Formula 1 and related trademarks are the property of their respective owners. This project uses previously recorded motorsport timing and telemetry data for development, experimentation, and educational purposes.
+
+# F1 Race Replay 🏎️
+
+This project was built using some of the code from the F1 Race Replay project, which can be found at: https://github.com/IAmTomShaw/f1-race-replay
+
+The original project was created to replay Formula 1 telemetry data in a visual format using Python and FastF1. This project has been created essentially as a headless version of the original, focused on providing a WebSocket feed of telemetry and race control data for client applications to consume.
+
+---
+
+Built by [Tom Shaw](https://tomshaw.dev)
