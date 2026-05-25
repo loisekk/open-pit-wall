@@ -1,0 +1,7 @@
+fastf1
+pandas
+matplotlib
+numpy
+questionary
+rich
+websockets

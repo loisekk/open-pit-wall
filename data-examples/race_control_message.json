@@ -1,0 +1,11 @@
+  {
+    "timestamp": "",
+    "event": "race_control",
+    "payload": {
+      "message": "SAFETY CAR DEPLOYED",
+      "flag": "YELLOW",
+      "scope": "Track",
+      "sector": 0,
+      "current_lap": 0
+    }
+  }

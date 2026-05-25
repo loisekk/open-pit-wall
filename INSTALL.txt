@@ -1,0 +1,15 @@
+Install from the repository root:
+
+  python3 -m pip install .
+
+For development:
+
+  python3 -m pip install -e ".[dev]"
+
+Run the interactive CLI:
+
+  open-pit-wall
+
+Run broadcaster help:
+
+  open-pit-wall replay --help

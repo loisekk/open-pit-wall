@@ -1,0 +1,22 @@
+{
+  "timestamp": "2024-06-01T12:00:00Z",
+  "event": "telemetry.drivers.VER",
+  "payload": {
+    "driver_code": "VER",
+    "current_lap_time": 0,
+    "speed": 0,
+    "rpm": 0,
+    "throttle": 0,
+    "brake": 0,
+    "gear": 0,
+    "drs_status": 0,
+    "current_tyre": "SOFT",
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "dist_metres_around_track": 0,
+      "dist_percentage_around_track": 0
+    }
+  }
+}

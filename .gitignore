@@ -1,0 +1,9 @@
+build/
+dist/
+*.egg-info/
+.venv/
+__pycache__/
+.pytest_cache/
+computed_data/
+.fastf1-cache/
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "timestamp": "",
+  "event": "leaderboard",
+  "payload": {
+    "drivers": [{
+      "position": 1,
+      "driver_code": "VER",
+      "dist_metres_from_leader": 0
+    },
+    {
+      "position": 2,
+      "driver_code": "LEC",
+      "dist_metres_from_leader": 1.5
+    }]
+  }
+}
