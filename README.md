@@ -1,11 +1,10 @@
 # Open Pit Wall 📡🏎️
 
-![Open Pit Wall Diagram](./resources/diagram.png)
+![Open Pit Wall Header](./resources/header.png)
 
 Open Pit Wall is a Python project for replaying previously recorded Formula 1 timing and telemetry data as a simulated live WebSocket broadcast. It is designed for testing dashboards, overlays, visualizations, and other client applications that need a realistic motorsport data feed without requiring access to live telemetry.
 
 It combines a CLI session picker, FastF1-powered data download pipeline, cached replay files, and a replay broadcaster with channel-based subscriptions for telemetry, leaderboard, race control, weather, and lap updates.
-
 
 ## Features
 
@@ -14,6 +13,8 @@ It combines a CLI session picker, FastF1-powered data download pipeline, cached 
 - Local WebSocket broadcaster for replaying cached sessions
 - Channel subscriptions for telemetry, leaderboard, weather, lap, and race control data
 - Terminal replay controls for play, pause, seek, restart, and speed changes
+
+![Diagram of Open Pit Wall](./resources/diagram.png)
 
 ## Requirements
 
@@ -75,6 +76,17 @@ You can also use the package module entrypoint:
 python3 -m open_pit_wall replay --help
 ```
 
+## Example project
+
+The example project in [`examples/driver-telemetry-trace`](./examples/driver-telemetry-trace/README.md) demonstrates how to connect to the WebSocket server and subscribe to telemetry channels for a single driver, then print a trace of speed, throttle, brake, and gear data for each frame.
+
+You can run the example with:
+
+```bash
+cd examples/driver-telemetry-trace
+python3 main.py --driver VER
+```
+
 ## Replay controls
 
 - `play`
@@ -111,7 +123,7 @@ Example subscription request:
 
 ## Repository layout
 
-```text
+```text tr
 open-pit-wall/
 ├── main.py
 ├── pyproject.toml
@@ -163,7 +175,7 @@ This project is licensed under the MIT License. See [`LICENSE`](./LICENSE).
 
 Formula 1 and related trademarks are the property of their respective owners. This project uses previously recorded motorsport timing and telemetry data for development, experimentation, and educational purposes.
 
-# F1 Race Replay 🏎️
+## F1 Race Replay 🏎️
 
 This project was built using some of the code from the F1 Race Replay project, which can be found at: https://github.com/IAmTomShaw/f1-race-replay
 
