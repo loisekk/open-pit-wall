@@ -26,6 +26,7 @@ dependencies = [
   "numpy",
   "questionary",
   "rich",
+  "scipy",
   "websockets",
 ]
 
@@ -33,6 +34,9 @@ dependencies = [
 dev = [
   "build",
   "pytest",
+  "pyright",
+  "pandas-stubs",
+  "scipy-stubs",
 ]
 
 [project.urls]

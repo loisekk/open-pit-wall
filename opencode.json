@@ -1,0 +1,12 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "AGENTS.md",
+    "C:\\Users\\yashb\\OneDrive\\Desktop\\opencode-second-brain\\SKILL.md"
+  ],
+  "skills": {
+    "paths": [
+      "C:\\Users\\yashb\\OneDrive\\Desktop\\opencode-second-brain"
+    ]
+  }
+}

@@ -1,8 +1,11 @@
+from __future__ import annotations
+
 import math
 import os
 from bisect import bisect_left
 from datetime import date, datetime, timedelta, timezone
 from multiprocessing import Pool, cpu_count
+from typing import Any
 from pathlib import Path
 
 import fastf1
@@ -663,7 +666,7 @@ def _compute_safety_car_positions(frames, track_statuses, session):
             return
         
         # Interpolate reference to high density for smooth positioning
-        from scipy.spatial import cKDTree
+        from scipy.spatial import cKDTree  # type: ignore[import-untyped]
         t_old = np.linspace(0, 1, len(ref_xs))
         t_new = np.linspace(0, 1, 4000)
         ref_xs_dense = np.interp(t_new, t_old, ref_xs)
@@ -789,7 +792,7 @@ def _compute_safety_car_positions(frames, track_statuses, session):
         
         return best_code, best_x, best_y, best_dist
 
-    def get_leader_info(frame):
+    def get_leader_info(frame) -> tuple[Any, Any, Any, Any, Any]:
         """Get the race leader's (code, x, y, track_dist, total_progress)."""
         drivers = frame.get("drivers", {})
         if not drivers:
@@ -1185,7 +1188,7 @@ def get_race_telemetry(
                 merged_race_control_events.append(race_control_event)
 
     # 4.1. Resample weather data onto the same timeline for playback
-    weather_resampled = None
+    weather_resampled: dict[str, Any] | None = None
     weather_df = getattr(session, "weather_data", None)
     if weather_df is not None and not weather_df.empty:
         try:
@@ -1386,7 +1389,7 @@ def get_qualifying_results(session):
         full_name = row["FullName"]
 
         # Convert pandas Timedelta objects to seconds (or None if NaT)
-        def convert_time_to_seconds(time_val) -> str:
+        def convert_time_to_seconds(time_val) -> str | None:
             if pd.isna(time_val):
                 return None
             return str(time_val.total_seconds())
@@ -1405,7 +1408,7 @@ def get_qualifying_results(session):
     return qualifying_data
 
 
-def get_driver_quali_telemetry(session, driver_code: str, quali_segment: str):
+def get_driver_quali_telemetry(session, driver_code: str, quali_segment: str) -> dict[str, Any]:
     # Split Q1/Q2/Q3 sections
     q1, q2, q3 = session.laps.split_qualifying_sessions()
 
@@ -1551,7 +1554,7 @@ def get_driver_quali_telemetry(session, driver_code: str, quali_segment: str):
         )
 
     # 4.1. Resample weather data onto the same timeline for playback
-    weather_resampled = None
+    weather_resampled: dict[str, Any] | None = None
     weather_df = getattr(session, "weather_data", None)
     if weather_df is not None and not weather_df.empty:
         try:
@@ -1849,13 +1852,13 @@ def get_race_weekends_by_year(year):
             session_name = event.get(f"Session{i}")
             session_date = event.get(f"Session{i}Date")
             if session_name and pd.notna(session_date):
-                session_dates[str(session_name)] = session_date.isoformat()
+                session_dates[str(session_name)] = session_date.isoformat()  # type: ignore[union-attr]
 
         weekends.append(
             {
                 "round_number": event["RoundNumber"],
                 "event_name": event["EventName"],
-                "date": str(event["EventDate"].date()),
+                "date": str(event["EventDate"].date()),  # type: ignore[union-attr]
                 "country": event["Country"],
                 "type": event["EventFormat"],
                 "session_dates": session_dates,
@@ -1886,9 +1889,9 @@ def get_race_weekends_by_place(place):
                 weekends.append({
                     "round_number": event["RoundNumber"],
                     "event_name": event["EventName"],
-                    "date": str(event["EventDate"].date()),
+                    "date": str(event["EventDate"].date()),  # type: ignore[union-attr]
                     "country": event["Country"],
-                    "year": int(event["EventDate"].date().year),
+                    "year": int(event["EventDate"].date().year),  # type: ignore[union-attr]
                     "type": event["EventFormat"],
                 })
     return weekends

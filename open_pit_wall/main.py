@@ -42,3 +42,7 @@ def main(argv=None):
 
     run_cli_menu()
     raise SystemExit(0)
+
+
+if __name__ == "__main__":
+    main()

@@ -103,10 +103,10 @@ def test_formats_runtime_status_with_connections_and_subscriptions():
     replay_session = make_replay_session(race_control_messages=[])
     broadcaster = TelemetryBroadcaster(replay_session, enable_terminal_controls=False)
     broadcaster._clients = {
-        object(): ClientState(
+        object(): ClientState(  # type: ignore[dict-item]
             client_id=1, subscriptions={"leaderboard", "telemetry.drivers"}
         ),
-        object(): ClientState(client_id=2, subscriptions={"telemetry.weather"}),
+        object(): ClientState(client_id=2, subscriptions={"telemetry.weather"}),  # type: ignore[dict-item]
     }
     broadcaster._replay_status = "started"
     broadcaster._paused = False
@@ -127,10 +127,10 @@ def test_status_message_includes_connection_count_and_timestamp():
     broadcaster = TelemetryBroadcaster(replay_session, enable_terminal_controls=False)
     websocket = object()
     broadcaster._clients = {
-        websocket: ClientState(client_id=1, subscriptions={"leaderboard"})
+        websocket: ClientState(client_id=1, subscriptions={"leaderboard"})  # type: ignore[dict-item]
     }
 
-    status_message = asyncio.run(broadcaster._status_message(websocket))
+    status_message = asyncio.run(broadcaster._status_message(websocket))  # type: ignore[arg-type]
 
     assert status_message["current_timestamp"] == "2024-01-01T12:00:00Z"
     assert status_message["total_connections"] == 1

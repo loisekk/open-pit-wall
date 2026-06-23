@@ -7,3 +7,4 @@ __pycache__/
 computed_data/
 .fastf1-cache/
 .DS_Store
+graphify-out/

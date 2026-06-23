@@ -261,7 +261,7 @@ class TelemetryBroadcaster:
         try:
             await websocket.send(self._serialize_message(self._welcome_message()))
             async for raw_message in websocket:
-                await self._handle_client_message(websocket, raw_message)
+                await self._handle_client_message(websocket, raw_message)  # type: ignore[arg-type]
         except ConnectionClosed:
             pass
         finally:

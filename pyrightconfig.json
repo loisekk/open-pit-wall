@@ -1,0 +1,14 @@
+{
+  "include": ["open_pit_wall"],
+  "exclude": ["graphify-out", "data-examples", "resources"],
+  "reportMissingImports": false,
+  "reportMissingTypeStubs": "none",
+  "reportAttributeAccessIssue": false,
+  "reportOptionalSubscript": false,
+  "reportOptionalMemberAccess": false,
+  "reportReturnType": false,
+  "reportGeneralTypeIssues": false,
+  "reportArgumentType": false,
+  "reportOperatorIssue": false,
+  "reportImportCycles": false
+}
